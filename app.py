@@ -15,6 +15,8 @@ class Person(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    address = db.Column(db.String, nullable=False)
+    completed = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
         return f'<Person ID: {self.id}, Name: {self.name}>'
@@ -33,9 +35,6 @@ class Customer(db.Model):
 
     def __repr__(self) -> str:
         return f"{self.first_name} {self.last_name}"
-
-
-db.create_all()
 
 
 @app.route('/')
